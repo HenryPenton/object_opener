@@ -1,7 +1,7 @@
 const open = (object, attempt) => {
   let current = object;
   attempt.split(".").forEach(subObject => {
-    if (current === undefined) return undefined;
+    if (!current) return undefined;
     current = current[subObject];
   });
   return current;
