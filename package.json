@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest"
   },
+  "repository": {
+  "type" : "git",
+  "url" : "https://github.com/HenryPenton/object_opener.git"
+}
   "keywords": [],
   "author": "Henry Penton",
   "license": "ISC"
