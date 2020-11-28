@@ -13,6 +13,9 @@
     "version": "git add -A src",
     "postversion": "git push && git push --tags"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/HenryPenton/object_opener.git"
