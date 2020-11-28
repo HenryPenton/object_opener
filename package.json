@@ -1,6 +1,6 @@
 {
   "name": "object_opener",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "description": "A zero dependency package that can pull subobjects or undefined out of an object",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
