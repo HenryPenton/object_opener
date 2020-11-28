@@ -16,7 +16,12 @@
     "type": "git",
     "url": "https://github.com/HenryPenton/object_opener.git"
   },
-  "keywords": [],
+  "keywords": [
+    "object",
+    "subobject",
+    "key",
+    "property"
+  ],
   "author": "Henry Penton",
   "license": "ISC",
   "devDependencies": {
