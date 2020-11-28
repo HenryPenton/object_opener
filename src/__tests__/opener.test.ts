@@ -1,4 +1,4 @@
-const open = require("./index.js");
+import { open } from "../opener";
 
 const testData = {
   test: {
@@ -6,13 +6,13 @@ const testData = {
       what: "yes",
       deeperObject: {
         omgsodeep: {
-          yep: "heheheh"
-        }
-      }
-    }
+          yep: "heheheh",
+        },
+      },
+    },
   },
   florp: "works",
-  blorp: {}
+  blorp: {},
 };
 
 test("Ensure sub-objects are correctly brought out of object", () => {
