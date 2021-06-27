@@ -40,5 +40,9 @@ describe("open", () => {
     expect(
       open(testData, "test.testing.deeperObject.omgsodeep.someArray[2][1][0]")
     ).toEqual("subthing");
+
+    expect(
+      open(testData, "test.testing.deeperObject.omgsodeep.someArray[3]")
+    ).toBeUndefined();
   });
 });
