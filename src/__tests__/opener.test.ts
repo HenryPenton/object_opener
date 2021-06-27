@@ -7,6 +7,7 @@ const testData = {
       deeperObject: {
         omgsodeep: {
           yep: "heheheh",
+          someArray: [{}, { someThing: "s" }],
         },
       },
     },
@@ -14,13 +15,24 @@ const testData = {
   florp: "works",
   blorp: {},
 };
+describe("open", () => {
+  test("Ensure sub-objects are correctly brought out of object", () => {
+    expect(open(testData, "test")).toEqual(testData.test);
+    expect(open(testData, "test.testing")).toEqual(testData.test.testing);
+    expect(open(testData, "test.testing.what")).toEqual(
+      testData.test.testing.what
+    );
+    expect(open(testData, "test.a.a.a.f.g.h.ja.a.a.a")).toEqual(undefined);
+    expect(open(testData, "florp")).toEqual(testData.florp);
+  });
 
-test("Ensure sub-objects are correctly brought out of object", () => {
-  expect(open(testData, "test")).toEqual(testData.test);
-  expect(open(testData, "test.testing")).toEqual(testData.test.testing);
-  expect(open(testData, "test.testing.what")).toEqual(
-    testData.test.testing.what
-  );
-  expect(open(testData, "test.a.a.a.f.g.h.ja.a.a.a")).toEqual(undefined);
-  expect(open(testData, "florp")).toEqual(testData.florp);
+  test.only("Arrays work", () => {
+    // expect(
+    //   open(testData, "test.testing.deeperObject.omgsodeep.someArray")
+    // ).toEqual(testData.test.testing.deeperObject.omgsodeep.someArray);
+
+    expect(
+      open(testData, "test.testing.deeperObject.omgsodeep.someArray[1]")
+    ).toEqual(testData.test.testing.deeperObject.omgsodeep.someArray[1]);
+  });
 });
