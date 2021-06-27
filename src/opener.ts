@@ -6,22 +6,16 @@ export const open = (object: any, key: string) => {
   key.split(".").forEach((subkey) => {
     if (!current) return undefined;
 
-    let subSubKeysaaaa: string[] = [];
-    let subKeyWithoutIndexaaaa = "";
     if (subkey.includes("[")) {
       const { subSubKeys, subKeyWithoutIndex } = subSubKeyOpener(subkey);
-      subSubKeysaaaa = subSubKeys;
-      subKeyWithoutIndexaaaa = subKeyWithoutIndex;
-    }
-    if (subSubKeysaaaa.length > 0) {
-      console.log(current);
+      current = current[subKeyWithoutIndex];
 
-      const indexInArray = parseInt(subSubKeysaaaa[0], 10);
-      console.log(indexInArray);
-      current = current[subKeyWithoutIndexaaaa];
+      for (let index = 0; index < subSubKeys.length; index++) {
+        const subSubKey = subSubKeys[index];
+        const indexInArray = parseInt(subSubKey, 10);
 
-      current = current[indexInArray];
-      console.log(current);
+        current = current[indexInArray];
+      }
     } else {
       current = current[subkey];
     }

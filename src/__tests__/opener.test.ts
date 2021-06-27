@@ -4,10 +4,11 @@ const testData = {
   test: {
     testing: {
       what: "yes",
+      2: "some number key",
       deeperObject: {
         omgsodeep: {
           yep: "heheheh",
-          someArray: [{}, { someThing: "s" }],
+          someArray: [{}, { someThing: "s" }, ["thing", ["subthing"]]],
         },
       },
     },
@@ -24,15 +25,20 @@ describe("open", () => {
     );
     expect(open(testData, "test.a.a.a.f.g.h.ja.a.a.a")).toEqual(undefined);
     expect(open(testData, "florp")).toEqual(testData.florp);
+    expect(open(testData, "test.testing.2")).toEqual("some number key");
   });
 
-  test.only("Arrays work", () => {
-    // expect(
-    //   open(testData, "test.testing.deeperObject.omgsodeep.someArray")
-    // ).toEqual(testData.test.testing.deeperObject.omgsodeep.someArray);
+  test("Arrays work", () => {
+    expect(
+      open(testData, "test.testing.deeperObject.omgsodeep.someArray")
+    ).toEqual(testData.test.testing.deeperObject.omgsodeep.someArray);
 
     expect(
       open(testData, "test.testing.deeperObject.omgsodeep.someArray[1]")
     ).toEqual(testData.test.testing.deeperObject.omgsodeep.someArray[1]);
+
+    expect(
+      open(testData, "test.testing.deeperObject.omgsodeep.someArray[2][1][0]")
+    ).toEqual("subthing");
   });
 });
