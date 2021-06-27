@@ -13,6 +13,7 @@ export const open = (object: any, key: string) => {
       for (let index = 0; index < subSubKeys.length; index++) {
         const subSubKey = subSubKeys[index];
         const indexInArray = parseInt(subSubKey, 10);
+        if (!current) return undefined;
 
         current = current[indexInArray];
       }

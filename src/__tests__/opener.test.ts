@@ -44,5 +44,9 @@ describe("open", () => {
     expect(
       open(testData, "test.testing.deeperObject.omgsodeep.someArray[3]")
     ).toBeUndefined();
+
+    expect(
+      open(testData, "test.testing.deeperObject.omgsodeep.someArray[3][4][5][6][7]")
+    ).toBeUndefined();
   });
 });
